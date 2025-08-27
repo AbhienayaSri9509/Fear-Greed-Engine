@@ -7,10 +7,15 @@ Helps investors & traders make data-driven decisions by correlating sentiment wi
 **✨ Key Features**
 
 ✅ Multi-source data ingestion (Twitter, Reddit, News, Finance APIs)
+
 ✅ NLP-powered sentiment analysis
+
 ✅ Aggregated sentiment scoring with weighting & time decay
+
 ✅ Buy/Sell/Hold signal generation from sentiment-price correlation
+
 ✅ Backtesting & performance evaluation
+
 ✅ Auto-generated reports (CSV, plots & charts)
 
 ⚙️ Setup Instructions
