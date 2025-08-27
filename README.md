@@ -1,12 +1,10 @@
 
-:
-
-🧠 Fear & Greed Sentiment Engine
+# Fear & Greed Sentiment Engine
 
 An AI-powered market sentiment system that analyzes Twitter, Reddit, News, and financial data to generate actionable buy/sell signals.
 Helps investors & traders make data-driven decisions by correlating sentiment with price movements.
 
-✨ Key Features
+**✨ Key Features**
 
 ✅ Multi-source data ingestion (Twitter, Reddit, News, Finance APIs)
 ✅ NLP-powered sentiment analysis
@@ -16,27 +14,29 @@ Helps investors & traders make data-driven decisions by correlating sentiment wi
 ✅ Auto-generated reports (CSV, plots & charts)
 
 ⚙️ Setup Instructions
-# Clone the repo
-git clone https://github.com/yourusername/fear-greed-engine.git
+**Clone the repo**
+git clone https://github.com/AbhienayaSri9509/fear-greed-engine.git
 cd fear-greed-engine
 
-# Create & activate a virtual environment
+**Create & activate a virtual environment**
 python -m venv venv
-# On Linux/Mac
-source venv/bin/activate
-# On Windows
+
+**On Windows**
 venv\Scripts\activate
 
-# Install dependencies
+**Install dependencies**
 pip install -r requirements.txt
 
-🔑 API Configuration
+**API Configuration**
 
 Create a .env file in the project root and add your API keys:
 
 TWITTER_BEARER_TOKEN=AAAAAAAAAAAAAAAAAAAAAEFO3AEAAAAAMZQYgxUfjWlxgIz%2BOe%2Bc79k9S7Y%3DctPEx6p7bDRCQi8oWBThflBKfehdyKV9VEmx1ESgKCAKkv4Vwq
+
 REDDIT_CLIENT_ID=QCBm5Evs5sW4XkBjv6CGoA
+
 REDDIT_CLIENT_SECRET=CC5SrV1H_Ex590sdQU2jdVeMUZYogQ
+
 NEWSAPI_KEY=165fc81156d74945a34431ffd567463a
 
 📦 Download Required Models
@@ -49,7 +49,7 @@ python -m nltk.downloader all
 python main.py
 
 
-👉 Run individual phases:
+**👉 Run individual phases**:
 
 Phase 1: Data Ingestion
 
@@ -79,7 +79,7 @@ Phase 5: Backtesting & Evaluation
 python backtesting/evaluator.py
 
 
-👉 Run tests:
+**👉 Run tests:**
 
 pytest tests/
 
@@ -112,7 +112,8 @@ fear-greed-engine/
 ├── requirements.txt            # Dependencies
 └── README.md                   # Documentation
 
-🏗️ Architecture Overview
+**🏗️ Architecture Overview**
+
 flowchart TD
     A[Twitter API] --> B[Data Ingestion]
     A2[Reddit API] --> B
@@ -125,7 +126,7 @@ flowchart TD
     E --> F[Backtesting & Evaluation]
     F --> G[Reports & Visualization]
 
-📊 Outputs
+**Outputs**
 
 📈 CSV performance reports
 
