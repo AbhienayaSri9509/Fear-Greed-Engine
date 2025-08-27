@@ -1,0 +1,9 @@
+{
+  "overallScore": 61,
+  "sources": [
+    { "source": "Twitter", "sentiment": 55 },
+    { "source": "Reddit", "sentiment": 63 },
+    { "source": "News", "sentiment": 48 },
+    { "source": "Finance", "sentiment": 78 }
+  ]
+}

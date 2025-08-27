@@ -1,0 +1,13 @@
+
+tweepy
+praw
+newsapi-python
+yfinance
+transformers
+scikit-learn
+pandas
+numpy
+requests
+python-dotenv
+
+

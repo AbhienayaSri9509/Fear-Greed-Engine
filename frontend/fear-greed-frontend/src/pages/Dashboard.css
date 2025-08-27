@@ -1,0 +1,69 @@
+.dashboard-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.score-card {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+.score-card.fear {
+  background-color: #e74c3c;
+}
+
+.score-card.neutral {
+  background-color: #95a5a6;
+}
+
+.score-card.greed {
+  background-color: #27ae60;
+}
+
+.sentiment-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.recent-feed {
+  margin-top: 2rem;
+}
+
+.feed-item {
+  background: #f9f9f9;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+.sentiment-label {
+  font-weight: bold;
+}
+
+.sentiment-label.positive {
+  color: #27ae60;
+}
+
+.sentiment-label.negative {
+  color: #e74c3c;
+}
+
+.sentiment-label.neutral {
+  color: #95a5a6;
+}
+
+.error {
+  text-align: center;
+  color: #e74c3c;
+  font-weight: 600;
+  padding: 2rem;
+}

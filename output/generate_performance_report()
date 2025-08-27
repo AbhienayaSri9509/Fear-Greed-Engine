@@ -1,0 +1,37 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+
+def generate_performance_report(dates, sentiment_scores, prices, 
+                                 filename="output/performance_report.csv",
+                                 plot_filename="output/performance_plot.png"):
+    # Ensure output directory exists
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    
+    # Create DataFrame
+    df = pd.DataFrame({
+        "date": dates,
+        "sentiment_score": sentiment_scores,
+        "price": prices,
+    })
+
+    # Save as CSV
+    df.to_csv(filename, index=False)
+    print(f"✅ CSV report saved to: {filename}")
+
+    # Plotting
+    plt.figure(figsize=(12, 6))
+    plt.plot(dates, prices, label="Price", color='blue')
+    plt.plot(dates, sentiment_scores, label="Sentiment Score", color='green')
+    plt.xlabel("Date")
+    plt.ylabel("Value")
+    plt.title("Sentiment vs Price Over Time")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+
+    # Save plot as PNG
+    plt.savefig(plot_filename)
+    print(f"✅ Plot saved to: {plot_filename}")
+
+    plt.close()  # Prevent plot from showing in some environments
