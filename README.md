@@ -1,87 +1,95 @@
-**Project Overview**
-The Fear & Greed Sentiment Engine is an AI-powered system designed to analyze market sentiment from multiple data sources including Twitter, Reddit, News, and financial market data. By aggregating sentiment scores and correlating them with real-time price movements, the system generates actionable buy/sell signals to assist investors and traders.
 
-**Key Features**:
+:
 
-1.Multi-source data ingestion (social media, news, finance)
+🧠 Fear & Greed Sentiment Engine
 
-2.Sentiment analysis using NLP techniques
+An AI-powered market sentiment system that analyzes Twitter, Reddit, News, and financial data to generate actionable buy/sell signals.
+Helps investors & traders make data-driven decisions by correlating sentiment with price movements.
 
-3.Weighted sentiment aggregation with time decay
+✨ Key Features
 
-4.Signal generation based on sentiment-price correlation
+✅ Multi-source data ingestion (Twitter, Reddit, News, Finance APIs)
+✅ NLP-powered sentiment analysis
+✅ Aggregated sentiment scoring with weighting & time decay
+✅ Buy/Sell/Hold signal generation from sentiment-price correlation
+✅ Backtesting & performance evaluation
+✅ Auto-generated reports (CSV, plots & charts)
 
-5.Backtesting to evaluate model accuracy
-
-6.Performance reporting with CSV and visualization
-
-**Setup Instructions**
-
+⚙️ Setup Instructions
+# Clone the repo
+git clone https://github.com/yourusername/fear-greed-engine.git
 cd fear-greed-engine
-**Create and activate a Python virtual environment**:
 
-
+# Create & activate a virtual environment
 python -m venv venv
-source venv/bin/activate     # On Windows: venv\Scripts\activate
-**Install dependencies**:
+# On Linux/Mac
+source venv/bin/activate
+# On Windows
+venv\Scripts\activate
 
-
+# Install dependencies
 pip install -r requirements.txt
-**Configure API keys**:
 
-Create a .env file in the root directory and add your API keys for Twitter, Reddit, NewsAPI, etc.
+🔑 API Configuration
 
-env
+Create a .env file in the project root and add your API keys:
 
-TWITTER_BEARER_TOKEN=your_twitter_token_here
-REDDIT_CLIENT_ID=your_reddit_client_id
-REDDIT_CLIENT_SECRET=your_reddit_client_secret
-NEWSAPI_KEY=your_newsapi_key
+TWITTER_BEARER_TOKEN=AAAAAAAAAAAAAAAAAAAAAEFO3AEAAAAAMZQYgxUfjWlxgIz%2BOe%2Bc79k9S7Y%3DctPEx6p7bDRCQi8oWBThflBKfehdyKV9VEmx1ESgKCAKkv4Vwq
+REDDIT_CLIENT_ID=QCBm5Evs5sW4XkBjv6CGoA
+REDDIT_CLIENT_SECRET=CC5SrV1H_Ex590sdQU2jdVeMUZYogQ
+NEWSAPI_KEY=165fc81156d74945a34431ffd567463a
 
-**Download any required models or NLTK data**:
-
+📦 Download Required Models
 python -m nltk.downloader all
 
-Usage Guide
-**Run the main program to execute the full pipeline**:
+🚀 Usage Guide
+
+👉 Run the full pipeline:
 
 python main.py
 
-**Individual Phase Execution**
+
+👉 Run individual phases:
+
 Phase 1: Data Ingestion
 
-Fetch Twitter data: python data_sources/twitter.py
+python data_sources/twitter.py
+python data_sources/reddit.py
+python data_sources/news.py
+python data_sources/finance.py
 
-Fetch Reddit data: python data_sources/reddit.py
-
-Fetch News data: python data_sources/news.py
-
-Fetch Financial data: python data_sources/finance.py
 
 Phase 2: Sentiment Analysis
 
-Run sentiment analyzers on fetched data (sentiment/analyzer.py)
+python sentiment/analyzer.py
+
 
 Phase 3: Sentiment Aggregation
 
-Use aggregation/sentiment_aggregator.py to combine scores
+python aggregation/sentiment_aggregator.py
+
 
 Phase 4: Signal Generation
 
-Calculate Fear & Greed index and generate buy/sell signals (signals/signal_generator.py)
+python signals/signal_generator.py
 
-Phase 5: Backtesting and Evaluation
 
-Backtest using historical data and generate performance reports (backtesting/evaluator.py)
+Phase 5: Backtesting & Evaluation
 
-**Folder Structure**
+python backtesting/evaluator.py
 
+
+👉 Run tests:
+
+pytest tests/
+
+📂 Folder Structure
 fear-greed-engine/
 │
 ├── aggregation/                # Sentiment aggregation modules
 │   └── sentiment_aggregator.py
 │
-├── backtesting/                # Backtesting & evaluation modules
+├── backtesting/                # Backtesting & evaluation
 │   └── evaluator.py
 │
 ├── data_sources/               # Data ingestion scripts
@@ -94,73 +102,33 @@ fear-greed-engine/
 │   ├── analyzer.py
 │   └── cleaner.py
 │
-├── signals/                   # Signal generation modules
+├── signals/                    # Signal generation modules
 │   └── signal_generator.py
 │
-├── output/                    # Generated reports, CSVs, and plots
+├── output/                     # Reports, CSVs, plots
+├── tests/                      # Unit & integration tests
 │
-├── tests/                     # Unit and integration tests
-│
-├── main.py                   # Main entry point script
-├── requirements.txt          # Python dependencies
-└── README.md                 # Project documentation
+├── main.py                     # Main pipeline script
+├── requirements.txt            # Dependencies
+└── README.md                   # Documentation
 
-**How to Run Each Phase/Module**
-Full pipeline: python main.py
+🏗️ Architecture Overview
+flowchart TD
+    A[Twitter API] --> B[Data Ingestion]
+    A2[Reddit API] --> B
+    A3[NewsAPI] --> B
+    A4[Financial APIs] --> B
 
-Run unit tests: pytest tests/
+    B --> C[Sentiment Analysis]
+    C --> D[Sentiment Aggregator]
+    D --> E[Signal Generation Engine]
+    E --> F[Backtesting & Evaluation]
+    F --> G[Reports & Visualization]
 
-Generate performance report: Run the backtesting evaluator module or call generate_performance_report() function from backtesting/evaluator.py
+📊 Outputs
 
-**Architecture Diagram Description**
-You can create a diagram with the following flow:
+📈 CSV performance reports
 
-✅Data Sources (Input Layer)
+📊 Sentiment & signal visualization plots
 
-Twitter API (tweets)
-
-Reddit API (posts & comments)
-
-NewsAPI (news articles)
-
-Financial APIs (price, volume, market data)
-
-✅Data Ingestion Layer
-
-Modules that fetch and preprocess raw data from each source
-
-✅Sentiment Analysis Layer
-
-NLP models analyze raw text to produce sentiment scores for each source
-
-✅Sentiment Aggregation Engine
-
-Aggregates sentiment scores from all sources per symbol
-
-Applies source weights and time decay
-
-✅Signal Generation Engine
-
-Correlates aggregated sentiment with price movements
-
-Computes Fear & Greed index
-
-Generates buy/sell/hold signals with confidence scores
-
-✅Backtesting & Evaluation
-
-Downloads historical data
-
-Compares signals vs actual market outcomes
-
-Generates performance reports (CSV, plots)
-
-✅Output Reports & Visualization
-
-Stores reports and plots in output/
-
-Provides insights for trading decisions
-
-# Fear-Greed-Engine-GoQuant-
-# Fear-Greed-Engine-GoQuant-
-# Fear-Greed-Engine
+✅ Buy/Sell/Hold signal recommendations
